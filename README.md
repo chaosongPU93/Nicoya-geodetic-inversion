@@ -17,7 +17,6 @@ This repository accompanies a manuscript in preparation.
 | `plateinterface/` | Plate-interface geometry inputs |
 | `Kyriakopoulos2016JGR/` | Plate-interface model and inputs from Kyriakopoulos et al. (2016, JGR) |
 | `DeShon_2006GJI/` | 3D velocity model and derived shear-modulus inputs from DeShon et al. (2006, GJI) |
-| `notes/` | Working notes |
 
 ## Dependencies
 
