@@ -1,0 +1,32 @@
+# ── Track only project source/data dirs; ignore everything else at top level ──
+/*
+!/.gitignore
+!/.gitattributes
+!/.githooks/
+!/codes/
+!/mesh/
+!/data/
+!/plateinterface/
+!/Kyriakopoulos2016JGR/
+!/DeShon_2006GJI/
+!/notes/
+!/notes_*.md
+!/README.md
+
+# ── Caches / editor / system files (any depth) ──
+**/__pycache__/
+**/.ipynb_checkpoints/
+**/.claude/
+**/.cache/
+**/*.pyc
+**/*.pyo
+.DS_Store
+
+# ── codes/: drop large scratch outputs ──
+/codes/test_meshCS.pdf
+
+# ── mesh/: keep only paper meshes (nicoyaCKden* + nicoyaden*); drop legacy families ──
+/mesh/*
+!/mesh/nicoyaCKden*
+!/mesh/nicoyaden*
+!/mesh/*.md

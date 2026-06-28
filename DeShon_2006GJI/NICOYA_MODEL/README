@@ -1,0 +1,10 @@
+db2EQKS=>reads an antelope database and outputs an EQKS file for use in SIMULPS.  This may be buggy.  You must check the output file for formatting errors!  Offhand, I can think of
+two possible bugs.  I noticed with antelope upgrades sometimes the 'use Datascope' command doesn't work due to linking problems.  Also, some of these programs
+are dependent on perl version.  The included perl script refers the program to /usr/bin/perl but this may be different on your system.  Also, the current
+setup is to ignore events picked by orbassoc or UNA.  I have noted this line of code using the line '###POSSIBLE BUG'.  
+
+????????.mod.out=>output model used in GJI 2006 DeShon et al. paper.  The output contains in P, S, and Vp/Vs.
+
+????????.stns.out=>output station corrections corresponding to the velocity model.  I have edited this file so it may be used as a STNS file for SIMULPS
+ 
+????????.eqks.out=>final earthquake locations and travel times for P and S-P  

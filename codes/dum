@@ -1,0 +1,23 @@
+
+######### HOW MESH 1 COORDINATES ARE CONVERTED TO LON/LAT #########
+lon0, lat0 = -84, 7      # Reference point (center of projection), from Christos's email
+rot = 45                  # Rotation angle in degrees, positive is CCW
+x0, y0 = 130e3, 350e3    # Offset for x and y coordinates in meters
+
+# Convert to local coordinates
+x_rot, y_rot = utp.LL2ckmd(lon_grid.ravel(), lat_grid.ravel(), lon0, lat0, rot)
+x_local = x_rot - x0
+y_local = y_rot - y0
+
+df['lon'], df['lat'] = utp.ckm2LLd(df['x'].values + x0, df['y'].values + y0, lon0, lat0, -rot)
+
+
+######### HOW MESH 2 COORDINATES ARE CONVERTED TO LON/LAT #########
+lon0, lat0 = -85.5, 10
+R = 6371.0  # Earth radius in km
+
+# Convert from mesh (km) to lon/lat
+lon_line, lat_line = utp.inverse_azi_equidist_proj(x_mesh_km, y_mesh_km, lon0, lat0)
+
+df['lon'], df['lat'] = utp.inverse_azi_equidist_proj(df['x'] / 1000.0, df['y'] / 1000.0, lon0, lat0)
+

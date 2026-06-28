@@ -1,0 +1,168 @@
+Number of stations: 43
+nicoyaCK
+Homogeneous structure:
+The shear modulus for the upper plate mu = 40.0 and lower plate mu = 40.0
+Heterogeneous structure:
+Converted from 3D & 1D velocity models to shear modulus, mu_str_het =  _DeShon3D
+Data weight horizontal / vertical: 1.00 / 0.50
+Inverse problem identifier:  _lockingboth_w12_gs1e+03_ds1e-06
+****** Computing solution with gamma_s =  1000.0 rho_s =  1000000000.0 and delta_s =  1e-06 ******
+Solving inverse problem based on:  _DeShon3D
+
+################################################################################
+ Set up the mesh and finite element spaces 
+################################################################################
+
+Number of dofs: STATE=11415468, PARAMETER=53196, ADJOINT=11415468
+Number of STATE and ADJOINT dofs: STRESS=7909884, DISPLACEMENT=1752792, ROTATION=1752792
+Warning: Filled 426 NaN values with nearest neighbor
+Saving true shear modulus structure to .xdmf file
+21.725324151760795 107.27712000000014
+Saving true Vs structure to .xdmf file
+2.8107148331639014 5.790000000000018
+Saving true density structure to .xdmf file
+2749.999999999973 3200.0000000000387
+Number of observation points: 43
+
+################################################################################
+ Done extracting the fault coordinates 
+################################################################################
+
+
+################################################################################
+ Solve the deterministic coseismic slip inverse problem 
+################################################################################
+
+
+################################################################################
+ Done generating STATE, PARAMETER and ADJOINT vectors 
+################################################################################
+
+ Iterartion :  0  (B r, r) =  118082688.48049724
+ Iteration :  1  (B r, r) =  8621979.680479702
+ Iteration :  2  (B r, r) =  669056.6358278355
+ Iteration :  3  (B r, r) =  255770.14862444584
+ Iteration :  4  (B r, r) =  73522.08134364492
+ Iteration :  5  (B r, r) =  106589.01833855068
+ Iteration :  6  (B r, r) =  40665.75738200484
+ Iteration :  7  (B r, r) =  24007.753736883846
+ Iteration :  8  (B r, r) =  9554.426752240326
+ Iteration :  9  (B r, r) =  6946.883456715184
+ Iteration :  10  (B r, r) =  22652.37367846329
+ Iteration :  11  (B r, r) =  19992.89546791681
+ Iteration :  12  (B r, r) =  1615.02594069039
+ Iteration :  13  (B r, r) =  36846.13842479919
+ Iteration :  14  (B r, r) =  2269.1501820608014
+ Iteration :  15  (B r, r) =  717.6383621064231
+ Iteration :  16  (B r, r) =  898.9829153731887
+ Iteration :  17  (B r, r) =  515.8980039131925
+ Iteration :  18  (B r, r) =  9731.578371312853
+ Iteration :  19  (B r, r) =  222.280411338746
+ Iteration :  20  (B r, r) =  2610.436424731673
+ Iteration :  21  (B r, r) =  419.0940710075947
+ Iteration :  22  (B r, r) =  6665.183890993696
+ Iteration :  23  (B r, r) =  2426.5959236806666
+ Iteration :  24  (B r, r) =  237.1307719692126
+ Iteration :  25  (B r, r) =  273.5648574748831
+ Iteration :  26  (B r, r) =  2074.7263789901604
+ Iteration :  27  (B r, r) =  684.532832479353
+ Iteration :  28  (B r, r) =  165.9752411303978
+ Iteration :  29  (B r, r) =  863.6658220394119
+ Iteration :  30  (B r, r) =  80.83958122352661
+ Iteration :  31  (B r, r) =  757.272234559097
+ Iteration :  32  (B r, r) =  57.92176912809904
+ Iteration :  33  (B r, r) =  62.424671758435316
+ Iteration :  34  (B r, r) =  460.268869657304
+ Iteration :  35  (B r, r) =  29.30023052984145
+ Iteration :  36  (B r, r) =  289.8517426737767
+ Iteration :  37  (B r, r) =  28.015336858775676
+ Iteration :  38  (B r, r) =  62.276162028416714
+ Iteration :  39  (B r, r) =  138.14006987507258
+ Iteration :  40  (B r, r) =  9.755400297659024
+ Iteration :  41  (B r, r) =  136.18959525441488
+ Iteration :  42  (B r, r) =  862.3641945052916
+ Iteration :  43  (B r, r) =  4.868748330348876
+ Iteration :  44  (B r, r) =  47.140188194808275
+ Iteration :  45  (B r, r) =  27.378181310098693
+ Iteration :  46  (B r, r) =  4.080405841879655
+ Iteration :  47  (B r, r) =  19.798441819943424
+ Iteration :  48  (B r, r) =  84.19606854966833
+ Iteration :  49  (B r, r) =  6.0529789702272385
+ Iteration :  50  (B r, r) =  1.6051501561945218
+ Iteration :  51  (B r, r) =  5.181917759135986
+ Iteration :  52  (B r, r) =  30.308091340333856
+ Iteration :  53  (B r, r) =  0.6428238539202712
+ Iteration :  54  (B r, r) =  2.1294109956422083
+ Iteration :  55  (B r, r) =  2.614372257056062
+ Iteration :  56  (B r, r) =  12.0320247119605
+ Iteration :  57  (B r, r) =  0.6050770570767803
+ Iteration :  58  (B r, r) =  0.44380298519124184
+ Iteration :  59  (B r, r) =  0.35489856676903736
+ Iteration :  60  (B r, r) =  0.14103967025640682
+ Iteration :  61  (B r, r) =  0.4673513963033054
+ Iteration :  62  (B r, r) =  0.4616056442599477
+ Iteration :  63  (B r, r) =  0.8921276366553901
+ Iteration :  64  (B r, r) =  0.06723965002447216
+ Iteration :  65  (B r, r) =  0.19203100296748848
+ Iteration :  66  (B r, r) =  0.46251859483113067
+ Iteration :  67  (B r, r) =  0.08622559935388303
+ Iteration :  68  (B r, r) =  0.10249970067710121
+ Iteration :  69  (B r, r) =  0.12953426964438966
+ Iteration :  70  (B r, r) =  0.025546147694387726
+ Iteration :  71  (B r, r) =  2.8487656497835334
+ Iteration :  72  (B r, r) =  0.03627654734466348
+ Iteration :  73  (B r, r) =  0.005927152532681857
+ Iteration :  74  (B r, r) =  0.048816431196274476
+ Iteration :  75  (B r, r) =  0.005986964450207113
+ Iteration :  76  (B r, r) =  0.00828186300830234
+ Iteration :  77  (B r, r) =  0.09050632973416961
+ Iteration :  78  (B r, r) =  0.06379525497574538
+ Iteration :  79  (B r, r) =  0.09214171406917339
+ Iteration :  80  (B r, r) =  0.0584655086785401
+ Iteration :  81  (B r, r) =  0.07747823168664239
+ Iteration :  82  (B r, r) =  0.004479726017130582
+ Iteration :  83  (B r, r) =  0.0020664244954835143
+ Iteration :  84  (B r, r) =  0.0015024977318852033
+ Iteration :  85  (B r, r) =  0.011538850186737478
+ Iteration :  86  (B r, r) =  0.0005517201462915426
+ Iteration :  87  (B r, r) =  0.009477815312999047
+ Iteration :  88  (B r, r) =  0.01659655796499367
+ Iteration :  89  (B r, r) =  0.0010605789857325346
+ Iteration :  90  (B r, r) =  0.0036917579691395754
+ Iteration :  91  (B r, r) =  0.0005070653256240604
+ Iteration :  92  (B r, r) =  0.00010405379175801854
+ Iteration :  93  (B r, r) =  0.0054183164176423914
+ Iteration :  94  (B r, r) =  0.0002622245970706997
+ Iteration :  95  (B r, r) =  0.000405071939976155
+ Iteration :  96  (B r, r) =  0.0004718686438970104
+ Iteration :  97  (B r, r) =  0.008832504099816063
+ Iteration :  98  (B r, r) =  0.0005059203448000819
+ Iteration :  99  (B r, r) =  1.7796745485135754e-05
+ Iteration :  100  (B r, r) =  2.91397077138707e-05
+ Iteration :  101  (B r, r) =  0.0002163749500088388
+ Iteration :  102  (B r, r) =  7.736148263744303e-05
+ Iteration :  103  (B r, r) =  8.283739038306738e-05
+ Iteration :  104  (B r, r) =  3.4750144899459955e-05
+ Iteration :  105  (B r, r) =  6.756684046528392e-06
+ Iteration :  106  (B r, r) =  9.019424738134722e-05
+ Iteration :  107  (B r, r) =  2.7301924602370685e-05
+ Iteration :  108  (B r, r) =  0.000349018277336329
+ Iteration :  109  (B r, r) =  7.533720741027376e-06
+ Iteration :  110  (B r, r) =  7.802759854685692e-06
+ Iteration :  111  (B r, r) =  9.785504906164769e-06
+ Iteration :  112  (B r, r) =  9.912182000562283e-06
+ Iteration :  113  (B r, r) =  1.7904339259241157e-06
+ Iteration :  114  (B r, r) =  8.20873010988938e-06
+ Iteration :  115  (B r, r) =  2.0880336298482846e-05
+ Iteration :  116  (B r, r) =  1.550396280129371e-05
+ Iteration :  117  (B r, r) =  1.1797730404480036e-05
+ Iteration :  118  (B r, r) =  5.024181593110071e-07
+ Iteration :  119  (B r, r) =  9.5648351929503e-07
+ Iteration :  120  (B r, r) =  7.742299108894348e-07
+ Iteration :  121  (B r, r) =  4.50400716457405e-06
+ Iteration :  122  (B r, r) =  2.412687294878825e-07
+ Iteration :  123  (B r, r) =  8.48884021213852e-08
+ Iteration :  124  (B r, r) =  3.7338013164391136e-06
+ Iteration :  125  (B r, r) =  4.719140723743126e-06
+ Iteration :  126  (B r, r) =  1.1248793723713597e-07
+ Iteration :  

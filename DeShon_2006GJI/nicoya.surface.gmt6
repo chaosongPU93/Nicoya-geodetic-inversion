@@ -1,0 +1,57 @@
+#!/bin/bash
+
+infile1=surface_latlon.xyz
+outfile=junk.ps
+Plots=/home/staff/chao/SSEinv/Nicoya/DeShon_2006GJI
+
+# Remove old file
+rm -f $outfile
+
+# Set GMT defaults
+gmt set FORMAT_GEO_MAP ddd:mm:ssF FONT_ANNOT 10p FONT_LABEL 10p FONT_TITLE 12p
+
+# Compute gridded surface
+gmt blockmean $infile1 -R-87/-84.7/8.8/11.1 -I0.075m > nic.surface
+gmt surface nic.surface -Gnic.surface.grd -I0.075m -R -T0
+
+# Plot coastlines
+gmt pscoast -R-86.5/-84.5/9/11 -JM5i -A2 -Dh -G135 -W1p -Baf -BWSne+t"Map" -X1i -Y2i -P -K > $outfile
+
+# Plot trench features
+# gmt psxy $Plots/trench.right.gmt -R -JM -W1p -Sf0.3i/0.08i+irt -Gblack -O -K >> $outfile
+# gmt psxy $Plots/trench.left.gmt  -R -JM -W1p -Sf0.3i/0.08i+ilt -Gblack -O -K >> $outfile
+# gmt psxy $Plots/trench.other.gmt -R -JM -W1p,30_30 -O -K >> $outfile
+
+# Plot contours from surface
+gmt grdcontour nic.surface.grd -R -JM -C2 -A10+f10p -L10/56 -Wthinnest -S10 -O -K >> $outfile
+
+# Plot profiles
+for i in 0 1 2 3 4 5 6; do
+  cat << EOF | gmt psxy -R -JM -W1p,black -O -K >> $outfile
+$(awk "NR==$((i+1))" << EOD
+-86.0000 9.0000
+-84.7063 10.2668
+-86.1000 9.1000
+-84.8063 10.3668
+-86.2000 9.2000
+-84.9063 10.4686
+-86.3000 9.3000
+-85.0063 10.5686
+-86.4000 9.4000
+-85.1023 10.6686
+-86.5000 9.5000
+-85.2063 10.7686
+-86.6000 9.6000
+-85.3063 10.8686
+EOD
+)
+EOF
+done
+
+# Plot data points
+awk '{print $1, $2}' $infile1 | \
+  gmt psxy -R -JM -Sc0.1i -Gred -W0.25p -O >> $outfile
+
+# # Display
+# gs $outfile
+ps2pdf $outfile junk.pdf

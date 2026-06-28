@@ -1,0 +1,98 @@
+### define the pattern of the slip distribution
+slip_pattern = "checker"
+# slip_pattern = "stripe"
+
+if slip_pattern == "checker":
+    ##### NEW CHECKERBOARD SLIP MODEL #####
+    print("Creating fault-local checkerboard with natural depth range...")
+
+    from utils import FaultLocalCheckerboard
+
+    # Define true model, m_strike = 0, m_dip = checkerboard, alternating between 0 and max
+    V_norm = 78.5 / 1e3     # the trench-normal long-term loading of 78.5 mm
+    amp = V_norm   # interseismic coupling case, max == complete coupling of 1 == the trench-normal long-term loading
+    # amp = 1   # coseismic case, max == 1 m
+
+    # # Checkerboard pattern parameters
+    # # Option 1, checkerboard along fault strike-dip directions
+    # dx = 35e3  # grid spacing in x direction, \lamda_x = 2*dx
+    # dy = 35e3  # spacing in y direction, \lamda_y = 2*dy
+    # x0 = -20e3  # offset along strike
+    # y0 = -60e3  # offset along dip
+    # rot_deg = 45  # 45° counterclockwise 
+
+    # Option 2, checkerboard along N-E directions
+    dx = 30e3  # grid spacing in x direction, \lamda_x = 2*dx
+    dy = 30e3  # spacing in y direction, \lamda_y = 2*dy
+    x0 = 20e3  # offset along strike
+    y0 = -10e3  # offset along dip
+    rot_deg = 0
+
+    # no constraint on 'z' any more as the labeled fault has intrinsic depth range
+    mtrue_s_expr_gt = ut.create_fault_local_checkerboard(
+        mesh=mesh,
+        boundaries=boundaries,
+        fault_id=fault,
+        amp=amp,
+        dx=dx,  # 40 km along-strike spacing
+        dy=dy,  # 40 km up-dip spacing
+        x0=x0,
+        y0=y0,
+        rotation_deg=rot_deg,
+        degree=5
+    )
+
+    slip_str_gt = f"_check_x{x0/1e3:g}_y{y0/1e3:g}_dx{dx/1e3:g}_dy{dy/1e3:g}_rot{rot_deg:g}_ms{amp:g}"
+
+
+elif slip_pattern == "stripe":
+    ##### STRIPE SLIP MODEL #####
+    print("Creating fault-local stripes with natural depth range...")
+
+    from utils import FaultLocalStripes
+
+    # Define true model, m_strike = 0, m_dip = stripes along-strike, alternating between 0 and max
+    V_norm = 78.5 / 1e3     # the trench-normal long-term loading of 78.5 mm
+    amp = V_norm   # interseismic coupling case, max == complete coupling of 1 == the trench-normal long-term loading
+    # amp = 1   # coseismic case, max == 1 m
+    
+    # # Stripe pattern parameters
+    # x_len = 35e3     # width of each rectangle in dip direction
+    # y_len = 300e3   # length of each rectangle in strike direction  
+    # dx = 25e3  # gap between rectangles
+    # stripe_spacing = x_len + dx  # center-to-center distance between rectangles in dip direction
+    # x0 = 0     # x center of the pattern
+    # y0 = -5e3     # y center of the pattern
+    # rot_deg = 0.0  # rotation angle in degrees (counter-clockwise positive)
+    # # rot_deg = 45.0
+    
+    x_len = 80e3     # width of each rectangle in dip direction
+    y_len = 300e3   # length of each rectangle in strike direction  
+    dx = 35e3  # gap between rectangles
+    stripe_spacing = x_len + dx  # center-to-center distance between rectangles in dip direction
+    x0 = 0     # x center of the pattern
+    y0 = -45e3     # y center of the pattern
+    rot_deg = 0.0  # rotation angle in degrees (counter-clockwise positive)
+
+    # no constraint on 'z' any more as the labeled fault has intrinsic depth range
+    mtrue_s_expr_gt = ut.create_fault_local_stripes(
+        mesh=mesh,
+        boundaries=boundaries,
+        fault_id=fault,
+        amp=amp,
+        stripe_width=x_len,
+        stripe_spacing=stripe_spacing,
+        stripe_length=y_len,
+        x0=x0, 
+        y0=y0,
+        rotation_deg=rot_deg,
+        degree=5
+    )
+
+    slip_str_gt = (
+        f"_stripe_x{x0/1e3:g}_y{y0/1e3:g}"
+        f"_lx{x_len/1e3:g}_dx{dx/1e3:g}"
+        f"_rot{rot_deg:g}_ms{amp:g}"
+    )
+
+print(slip_str_gt)  

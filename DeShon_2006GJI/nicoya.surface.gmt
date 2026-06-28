@@ -1,0 +1,63 @@
+#!/bin/sh 
+
+infile1=surface_latlon.xyz
+outfile=junk.ps	
+Plots=/usr1/hdeshon/PLOTS
+#################################
+################################
+rm $outfile
+
+gmtset DEGREE_FORMAT 1 ANOT_FONT 4 HEADER_FONT 4 LABEL_FONT 4
+
+blockmean $infile1 -R-87/-84.7/8.8/11.1 -I.075m -V > nic.surface
+surface nic.surface -Gnic.surface.grd -I.075m -V -R -T0
+
+pscoast -R-86.5/-84.5/9/11 -Jm5 -A2 -Dh -G135 -W1 -V -Y14 -X5 -P -K -B.5a1EWNS > $outfile
+#plot approximate trench location
+psxy $Plots/trench.right.gmt -R -Jm -M -W5/0 -Sf0.3i/0.08irt -G0 -O -K >> $outfile
+psxy $Plots/trench.left.gmt -R -Jm -M -W5/0 -Sf0.3i/0.08ilt -G0 -O -K >> $outfile
+psxy $Plots/trench.other.gmt -R -Jm -M -Wt30_30:1p5/0 -O -K >> $outfile
+
+grdcontour nic.surface.grd -C2 -Jm5 -R -V -A5f10 -L10/56.0 -Wc1/200 -G3/20 -S10 -K -O >> $outfile
+
+#profile 1
+psxy -Jm -R -O -W4/0/0/0 -K  << END >> $outfile
+-86.0000    9.0000
+-84.7063   10.2668
+END
+#profile 2
+psxy -Jm -R -O -W4/0/0/0 -K  << END >> $outfile
+-86.1000    9.1000
+-84.8063   10.3668
+END
+#profile 3
+psxy -Jm -R -O -W4/0/0/0 -K  << END >> $outfile
+-86.2000    9.2000
+-84.9063   10.4686
+END
+#profile 4
+psxy -Jm -R -O -W4/0/0/0 -K  << END >> $outfile
+-86.3000    9.3000
+-85.0063   10.5686
+END
+#profile 5
+psxy -Jm -R -O -W4/0/0/0 -K  << END >> $outfile
+-86.4000    9.4000
+-85.1023   10.6686
+END
+#profile 6
+psxy -Jm -R -O -W4/0/0/0 -K  << END >> $outfile
+-86.5000    9.5000
+-85.2063   10.7686 
+END
+#profile 7
+psxy -Jm -R -O -W4/0/0/0 -K  << END >> $outfile
+-86.6000    9.6000
+-85.3063   10.8686
+END
+
+awk '{print $1, $2}' $infile1 | \
+	psxy -Jm5 -R -Sc0.1 -G201/0/0 -W1 -O >> $outfile
+
+# DISPLAY PLOT
+gs $outfile 

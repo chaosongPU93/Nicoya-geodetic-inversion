@@ -1,0 +1,2 @@
+S 0.3c s 0.25c cyan 0.5p,black 0.5c Station
+S 0.3c kvolcano 0.5c red 0.25p,black 0.5c Volcano
