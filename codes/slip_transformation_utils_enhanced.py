@@ -19,7 +19,7 @@ Supported transformation functions:
 3. sigmoid(x) - Sigmoid variant: 2/(1+exp(-x)) - 1
 4. sqrt(x) - Square root variant: x/sqrt(1+x²)
 
-Author: Claude Code Assistant
+Author: Chao Song
 Compatible with: FEniCS, hIPPYlib
 Created: 2025-10-03 - Enhanced production-ready utility
 """

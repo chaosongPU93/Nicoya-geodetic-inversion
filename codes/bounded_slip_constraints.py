@@ -2,7 +2,7 @@
 Bounded slip constraints for fault slip inversion
 Implementation of box constraints for strike and dip slip components
 
-Author: Claude Code Assistant
+Author: Chao Song
 Compatible with: FEniCS, hIPPYlib
 """
 

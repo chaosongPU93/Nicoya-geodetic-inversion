@@ -12,7 +12,7 @@ Key advantages:
 - Flexible constraint combinations
 - Component-wise transformation to avoid UFL splitting issues
 
-Author: Claude Code Assistant
+Author: Chao Song
 Compatible with: FEniCS, hIPPYlib
 Created: 2025-08-28 - Production-ready utility
 """

@@ -16,11 +16,14 @@
 # ── Caches / editor / system files (any depth) ──
 **/__pycache__/
 **/.ipynb_checkpoints/
-**/.claude/
 **/.cache/
 **/*.pyc
 **/*.pyo
 .DS_Store
+
+# ── AI-assistant artifacts (any depth) ──
+**/.claude/
+**/CLAUDE.md
 
 # ── codes/: drop large scratch outputs ──
 /codes/test_meshCS.pdf
